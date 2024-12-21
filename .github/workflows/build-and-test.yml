@@ -1,0 +1,52 @@
+name: Build
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        node-version: [22]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'pnpm'
+    - name: Install dependencies
+      run: pnpm install --frozen-lockfile
+    - name: Get installed Playwright version
+      id: playwright-version
+      run: echo PLAYWRIGHT_VERSION=$(bash playwright-version.sh) >> $GITHUB_ENV
+
+    - name: Cache Playwright binaries
+      uses: actions/cache@v3
+      id: playwright-cache
+      with:
+        path: |
+            ~/.cache/ms-playwright
+        key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
+
+    - run: pnpm exec playwright install --with-deps
+      if: steps.playwright-cache.outputs.cache-hit != 'true'
+
+    - run: pnpm exec playwright install-deps
+    - name: Run linter
+      run: pnpm run lint
+    - name: Run build
+      run: pnpm run build
+    - name: Build Storybook
+      run: pnpm run build-storybook
+    - name: Run unit tests
+      run: time pnpm run test:unit
+    - name: Run browser tests
+      run: time pnpm run test:ui:ci
