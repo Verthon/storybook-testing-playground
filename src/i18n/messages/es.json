@@ -1,0 +1,7 @@
+{
+  "greeting": "¡Hola, {name}!",
+  "farewell": "¡Adiós!",
+  "switch_language": "Cambiar idioma",
+	"english": "EN",
+	"spanish": "ES"
+}

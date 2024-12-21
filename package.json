@@ -9,13 +9,16 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test:unit": "vitest run",
+    "test:ui": "test-storybook"
   },
   "dependencies": {
     "@mantine/core": "7.14.3",
     "@mantine/hooks": "7.14.3",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-intl": "7.0.4",
     "react-router": "7.0.2"
   },
   "devDependencies": {
@@ -29,6 +32,11 @@
     "@storybook/react": "8.4.6",
     "@storybook/react-vite": "8.4.6",
     "@storybook/test": "8.4.6",
+    "@storybook/test-runner": "0.21.0",
+    "@testing-library/dom": "10.4.0",
+    "@testing-library/jest-dom": "6.6.3",
+    "@testing-library/react": "16.1.0",
+    "@testing-library/user-event": "14.5.2",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "@vitejs/plugin-react-swc": "3.7.2",
@@ -37,13 +45,16 @@
     "eslint-plugin-react-refresh": "0.4.14",
     "eslint-plugin-storybook": "0.11.1",
     "globals": "15.12.0",
+    "happy-dom": "15.11.7",
+    "playwright": "1.49.1",
     "postcss": "8.4.49",
     "postcss-preset-mantine": "1.17.0",
     "postcss-simple-vars": "7.0.1",
     "storybook": "8.4.6",
     "typescript": "~5.6.2",
     "typescript-eslint": "8.15.0",
-    "vite": "6.0.1"
+    "vite": "6.0.1",
+    "vitest": "2.1.8"
   },
   "eslintConfig": {
     "extends": [
