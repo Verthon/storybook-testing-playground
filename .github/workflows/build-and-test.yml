@@ -24,12 +24,8 @@ jobs:
         cache: 'pnpm'
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
-    - name: Get installed Playwright version
-      id: playwright-version
-      run: echo PLAYWRIGHT_VERSION=$(bash playwright-version.sh) >> $GITHUB_ENV
-
     - name: Cache Playwright binaries
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       id: playwright-cache
       with:
         path: |
