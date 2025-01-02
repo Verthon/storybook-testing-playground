@@ -22,9 +22,9 @@ export const DefaultLanguage: Story = {
 
 		const select = canvas.getByRole("textbox");
 
-		await expect(select).toBeVisible();
-		await expect(select).toHaveValue("EN");
-		await expect(canvas.queryByDisplayValue(/\bES\b/i)).toBe(null);
+		expect(select).toBeVisible();
+		expect(select).toHaveValue("EN");
+		expect(canvas.queryByDisplayValue(/\bES\b/i)).toBe(null);
 	},
 };
 
@@ -41,7 +41,7 @@ export const SwitchLanguageToSpanish: Story = {
 		await user.click(select);
 		await user.click(screen.getByText(/\bES\b/i));
 
-		await expect(select).toHaveValue("ES");
-		await expect(canvas.queryByDisplayValue(/EN/i)).toBe(null);
+		expect(select).toHaveValue("ES");
+		expect(canvas.queryByDisplayValue(/EN/i)).toBe(null);
 	},
 };

@@ -12,7 +12,7 @@
     "build-storybook": "storybook build",
     "test:unit": "vitest run",
     "test:ui": "test-storybook",
-    "test:ui:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"http-server storybook-static --port 6006 --silent\" \"wait-on tcp:127.0.0.1:6006 && time pnpm test-storybook\""
+    "test:ui:ci": "concurrently -k -s first -n \"STORYBOOK,TEST\" \"http-server storybook-static --port 6006 --silent\" \"wait-on tcp:127.0.0.1:6006 && time pnpm run test:ui\""
   },
   "dependencies": {
     "@mantine/core": "7.14.3",
@@ -27,6 +27,7 @@
     "@eslint/js": "9.15.0",
     "@react-router/dev": "7.0.2",
     "@storybook/addon-a11y": "8.4.7",
+    "@storybook/addon-coverage": "^1.0.5",
     "@storybook/addon-essentials": "8.4.6",
     "@storybook/addon-interactions": "8.4.6",
     "@storybook/addon-onboarding": "8.4.6",
