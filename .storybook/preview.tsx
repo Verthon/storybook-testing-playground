@@ -1,7 +1,10 @@
 import type { Preview } from "@storybook/react";
 import React from "react";
+import { initialize as initializeMsw, mswLoader } from "msw-storybook-addon";
 
-import { AppProviders } from "../src/AppProviders";
+import { TestAppProviders } from "../src/AppProviders";
+
+initializeMsw({ onUnhandledRequest: "warn" });
 
 const preview: Preview = {
 	parameters: {
@@ -14,10 +17,12 @@ const preview: Preview = {
 	},
 
 	decorators: (Story) => (
-		<AppProviders>
+		<TestAppProviders>
 			<Story />
-		</AppProviders>
+		</TestAppProviders>
 	),
+
+	loaders: [mswLoader],
 };
 
 export default preview;

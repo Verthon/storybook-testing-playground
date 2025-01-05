@@ -3,5 +3,18 @@
 	"farewell": "Goodbye!",
 	"switch_language": "Switch language",
 	"english": "EN",
-	"spanish": "ES"
+	"spanish": "ES",
+	"userName": "Name",
+  "email": "Email",
+  "department": "Department",
+  "managerName": "Manager Name",
+  "dedicatedSupportEmail": "Dedicated Support Email",
+  "resellerName": "Reseller Name",
+  "tier": "Tier",
+  "employee": "Employee",
+  "enterprise": "Enterprise",
+  "reseller": "Reseller",
+  "silver": "Silver",
+  "gold": "Gold",
+  "platinum": "Platinum"
 }

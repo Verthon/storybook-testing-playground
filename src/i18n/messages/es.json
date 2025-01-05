@@ -3,5 +3,18 @@
   "farewell": "¡Adiós!",
   "switch_language": "Cambiar idioma",
 	"english": "EN",
-	"spanish": "ES"
+	"spanish": "ES",
+  "userName": "Nombre",
+  "email": "Correo Electrónico",
+  "department": "Departamento",
+  "managerName": "Nombre del Gerente",
+  "dedicatedSupportEmail": "Correo Electrónico de Soporte Dedicado",
+  "resellerName": "Nombre del Distribuidor",
+  "tier": "Nivel",
+  "employee": "Empleado",
+  "enterprise": "Empresa",
+  "reseller": "Distribuidor",
+  "silver": "Plata",
+  "gold": "Oro",
+  "platinum": "Platino"
 }

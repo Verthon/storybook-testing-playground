@@ -1,9 +1,9 @@
 import { AppShell } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { PropsWithChildren } from "react";
 import { Header } from "../organisms/Header";
+import { Outlet } from "react-router";
 
-export const AppLayout = ({ children }: PropsWithChildren) => {
+export const AppLayout = () => {
 	const [opened, { toggle }] = useDisclosure();
 
 	return (
@@ -22,7 +22,7 @@ export const AppLayout = ({ children }: PropsWithChildren) => {
 
 			<AppShell.Navbar p="md">Sidebar</AppShell.Navbar>
 
-			<AppShell.Main>{children}</AppShell.Main>
+			<AppShell.Main><Outlet /></AppShell.Main>
 		</AppShell>
 	);
 };
