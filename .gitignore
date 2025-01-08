@@ -25,6 +25,7 @@ dist-ssr
 
 *storybook.log
 coverage
+storybook-static
 
 # Envs
 

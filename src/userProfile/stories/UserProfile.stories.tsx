@@ -9,6 +9,24 @@ export default {
 	component: UserProfile,
 } satisfies Meta<typeof UserProfile>;
 
+
+// Causes flakiness because of https://github.com/mswjs/msw-storybook-addon/issues/82#issue-1234425798
+// export const ErrorState: StoryObj<typeof UserProfile> = {
+// 	parameters: {
+// 		msw: {
+// 			handlers: [createUserProfileHandler("apiError")],
+// 		},
+// 	},
+
+// 	play: async ({ canvasElement }) => {
+// 		const canvas = within(canvasElement);
+
+// 		const errorInfo = await canvas.findByText(/an error has occurred: HTTP error! status: 500/i);
+
+// 		expect(errorInfo).toBeVisible();
+// 	},
+// };
+
 export const Employee: StoryObj<typeof UserProfile> = {
 	parameters: {
 		msw: {
@@ -55,21 +73,5 @@ export const Enterprise: StoryObj<typeof UserProfile> = {
 		const supportEmail = await canvas.findByText(/support@global.com/i);
 
 		expect(supportEmail).toBeVisible();
-	},
-};
-
-export const ErrorState: StoryObj<typeof UserProfile> = {
-	parameters: {
-		msw: {
-			handlers: [createUserProfileHandler("apiError")],
-		},
-	},
-
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement);
-
-		const errorInfo = await canvas.findByText(/an error has occurred: HTTP error! status: 500/i);
-
-		expect(errorInfo).toBeVisible();
 	},
 };

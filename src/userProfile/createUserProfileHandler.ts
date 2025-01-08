@@ -13,13 +13,14 @@ const scenarioHandlers: Record<UserScenario, () => HttpResponse> = {
 	employee: () => HttpResponse.json(employeeUserFixture),
 	reseller: () => HttpResponse.json(resellerUserFixture),
 	enterprise: () => HttpResponse.json(enterpriseUserFixture),
-	apiError: () =>
-		new HttpResponse("Internal Server Error", {
+	apiError: () => {
+		return new HttpResponse("Internal Server Error", {
 			status: 500,
 			headers: {
 				"Content-Type": "text/plain",
 			},
-		}),
+		});
+	},
 };
 
 export function createUserProfileHandler(scenario: UserScenario = "employee") {
